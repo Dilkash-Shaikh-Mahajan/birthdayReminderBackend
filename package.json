@@ -5,7 +5,7 @@
 	"main": "index.js",
 	"scripts": {
 		"start": "node index",
-		"start:dev": "nodemon "
+		"server": "nodemon "
 	},
 	"keywords": [
 		"Dilkash Shaikh Mahajan",
@@ -22,3 +22,4 @@
 		"node-cron": "^3.0.2"
 	}
 }
+
