@@ -72,6 +72,8 @@ cron.schedule(' * * * * *', async () => {
 					title: `Today is ${userData.name} BirthDay`,
 					icon: 'https://dilkash-payment-gateway.netlify.app/favicon.ico',
 					// requireInteraction: true,
+					click_action: `https://birthday-reminder-frontend.vercel.app/`,
+					// requireInteraction: true,
 				},
 			};
 			// console.log(payload);
