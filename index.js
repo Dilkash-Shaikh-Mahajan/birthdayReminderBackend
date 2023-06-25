@@ -47,8 +47,8 @@ app.use('/', (req, res) => {
 //  # │ │ │ │ │ │
 //  # │ │ │ │ │ │
 //  # * * * * * *
-cron.schedule(' * * * * *', async () => {
-	// cron.schedule(' 0 * * * *', async () => {
+// cron.schedule(' * * * * *', async () => {
+cron.schedule(' 0 * * * *', async () => {
 	// This code will run at midnight (12:00 AM) every day
 
 	// Fetch the data from the database
