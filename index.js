@@ -9,11 +9,16 @@ const port = process.env.PORT || 7786;
 let api = require('./route');
 require('./database');
 app.use(cors());
+const allowedOrigins = [
+	'https://birthday-reminder-frontend1.vercel.app',
+	'http://localhost:3000',
+	// Add more frontend links here
+];
 app.use((req, res, next) => {
-	res.setHeader(
-		'Access-Control-Allow-Origin',
-		'https://birthday-reminder-frontend.vercel.app',
-	);
+	const origin = req.headers.origin;
+	if (allowedOrigins.includes(origin)) {
+		res.setHeader('Access-Control-Allow-Origin', origin);
+	}
 	res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
 	res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 	next();
