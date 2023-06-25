@@ -40,8 +40,7 @@ cron.schedule(' * * * * *', async () => {
 	const data = await SaveUser.find();
 	const currentDate = new Date();
 	const currentMonth = currentDate.getMonth() + 1;
-	console.log(currentDate.getDate());
-	console.log(currentMonth);
+
 	data.map(async (userData) => {
 		const [year, month, day] = userData.dateOfBirth.split('-');
 		if (
@@ -72,7 +71,10 @@ cron.schedule(' * * * * *', async () => {
 			admin.messaging()
 				.sendToDevice(allFCMToken, payload, options)
 				.then(function (response) {
-					// console.log('Successfully sent message:', response);
+					console.log(
+						'Successfully sent message:',
+						response,
+					);
 				})
 				.catch(function (error) {
 					// console.log('Error sending message:', error);
