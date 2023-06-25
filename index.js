@@ -71,6 +71,7 @@ cron.schedule(' * * * * *', async () => {
 					body: `Today is ${userData.name}, BirthDay, I have wish him on ${userData.whatsAppNumber} Whatsapp Number 👍 `,
 					title: `Today is ${userData.name} BirthDay`,
 					icon: 'https://dilkash-payment-gateway.netlify.app/favicon.ico',
+					requireInteraction: true,
 				},
 			};
 			// console.log(payload);
