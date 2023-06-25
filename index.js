@@ -48,7 +48,7 @@ app.use('/', (req, res) => {
 //  # │ │ │ │ │ │
 //  # * * * * * *
 // cron.schedule(' * * * * *', async () => {
-cron.schedule(' 0 * * * *', async () => {
+cron.schedule(' 0 0 * * *', async () => {
 	// This code will run at midnight (12:00 AM) every day
 
 	// Fetch the data from the database
@@ -77,6 +77,25 @@ cron.schedule(' 0 * * * *', async () => {
 					// requireInteraction: true,
 				},
 			};
+			function generateWhatsAppLink(phoneNumber, message) {
+				const baseUrl = 'https://wa.me/';
+				const encodedPhoneNumber =
+					encodeURIComponent(phoneNumber);
+				const encodedMessage = encodeURIComponent(message);
+				const link = `${baseUrl}${encodedPhoneNumber}?text=${encodedMessage}`;
+				return link;
+			}
+
+			// Usage example
+			const recipientNumber = 'RECIPIENT_PHONE_NUMBER';
+			const greetingMessage =
+				'Hello! This is your greeting message.';
+
+			const whatsappLink = generateWhatsAppLink(
+				recipientNumber,
+				greetingMessage,
+			);
+			console.log('WhatsApp Link:', whatsappLink);
 			// console.log(payload);
 			var options = {
 				priority: 'high',
